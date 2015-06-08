@@ -36,10 +36,7 @@
 	form.addEventListener('submit', function(e) {
 		var who = whoInput.value,
 			what = whatInput.value,
-			when = new Date(parseInt(whenInput, 10));
-
-		console.log(who, what, when);
-		console.log(when.getTime());
+			when = new Date(whenInput);
 
 		addItem(who, what, when);
 		render();
