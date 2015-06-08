@@ -14,8 +14,9 @@
 
 	var render = function() {
 		borrowed.forEach(function(item) {
-			var listItem = document.createElement('li'),
-				text = document.createTextNode(item.who + ' has my ' + item.what + '(' + item.when + ')');
+			var formatted = Date.toLocaleFormat('%c'),
+				listItem = document.createElement('li'),
+				text = document.createTextNode(item.who + ' has my ' + item.what + ' (' + formatted + ')');
 
 			listItem.appendChild(text);
 			list.appendChild(listItem);
