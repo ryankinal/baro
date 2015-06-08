@@ -13,6 +13,8 @@
 		};
 
 	var render = function() {
+		var fragment = document.createDocumentFragment();
+
 		borrowed.forEach(function(item) {
 			var when = new Date(item.when),
 				formatted = when.toLocaleString(),
@@ -20,8 +22,10 @@
 				text = document.createTextNode(item.who + ' has my ' + item.what + ' (' + formatted + ')');
 
 			listItem.appendChild(text);
-			list.appendChild(listItem);
+			fragment.appendChild(listItem);
 		});
+
+		list.appendChild(fragment);
 	};
 
 	addItem('dan', 'the good parts', Date.now());
