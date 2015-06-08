@@ -41,7 +41,7 @@
 		console.log(who, what, when);
 		console.log(when.getTime());
 
-		addItem(who, what, when.getTime());
+		addItem(who, what, when);
 		render();
 
 		e.preventDefault();
