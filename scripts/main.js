@@ -10,7 +10,7 @@
 			});
 		};
 
-	addItem('dan', 'the good parts', new Date().now());
+	addItem('dan', 'the good parts', Date.now());
 
 	console.log(borrowed);
 }());
