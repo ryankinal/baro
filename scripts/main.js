@@ -2,7 +2,11 @@
 
 (function() {
 	var borrowed = [],
-		list = document.getElementById('stuff');
+		list = document.getElementById('stuff'),
+		form = document.getElementById('input'),
+		whoInput = document.getElementById('whoInput'),
+		whatInput = document.getElementById('whatInput'),
+		whenInput = document.getElementById('whenInput');
 	
 	var addItem = function(who, what, when) {
 			borrowed.push({
@@ -27,6 +31,17 @@
 
 		list.appendChild(fragment);
 	};
+
+	form.addEventListener('submit', function() {
+		var who = whoInput.value,
+			what = whatInput.value,
+			when = new Date(parseInt(whenInput, 10));
+
+		addItem(who, what, when.getTime());
+		render();
+
+		return false;
+	});
 
 	addItem('dan', 'the good parts', Date.now());
 	addItem('dan', 'the good parts', Date.now());
