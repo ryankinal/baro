@@ -25,6 +25,9 @@
 	};
 
 	addItem('dan', 'the good parts', Date.now());
+	addItem('dan', 'the good parts', Date.now());
+	addItem('dan', 'the good parts', Date.now());
+	addItem('dan', 'the good parts', Date.now());
 
 	console.log(borrowed);
 
