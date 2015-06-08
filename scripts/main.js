@@ -38,7 +38,7 @@
 			what = whatInput.value,
 			when = new Date(whenInput.value);
 
-		addItem(who, what, when);
+		addItem(who, what, when.getTime());
 		render();
 
 		e.preventDefault();
