@@ -14,7 +14,8 @@
 
 	var render = function() {
 		borrowed.forEach(function(item) {
-			var formatted = Date.toLocaleFormat('%c'),
+			var when = new Date(item.when),
+				formatted = when.toLocaleFormat(),
 				listItem = document.createElement('li'),
 				text = document.createTextNode(item.who + ' has my ' + item.what + ' (' + formatted + ')');
 
