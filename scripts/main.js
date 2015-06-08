@@ -29,6 +29,7 @@
 			fragment.appendChild(listItem);
 		});
 
+		list.innerHTML = '';
 		list.appendChild(fragment);
 	};
 
@@ -36,6 +37,9 @@
 		var who = whoInput.value,
 			what = whatInput.value,
 			when = new Date(parseInt(whenInput, 10));
+
+		console.log(who, what, when);
+		console.log(when.getTime());
 
 		addItem(who, what, when.getTime());
 		render();
