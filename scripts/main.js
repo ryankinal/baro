@@ -29,9 +29,10 @@
 			del.appendChild(document.createTextNode('X'));
 			del.href = '#';
 
-			del.addEventListener('click', function() {
+			del.addEventListener('click', function(e) {
 				borrowed.splice(index, 1);
 				render();
+				e.preventDefault();
 			});
 
 			listItem.appendChild(text);
