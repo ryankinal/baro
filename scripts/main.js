@@ -14,6 +14,7 @@
 				what: what,
 				when: when
 			});
+			save();
 		};
 
 	var render = function() {
@@ -31,6 +32,7 @@
 
 			del.addEventListener('click', function(e) {
 				borrowed.splice(index, 1);
+				save();
 				render();
 				e.preventDefault();
 			});
@@ -42,6 +44,18 @@
 
 		list.innerHTML = '';
 		list.appendChild(fragment);
+	};
+
+	var save = function() {
+		localStorage.setItem('borrowed', JSON.stringify(borrowed));
+	};
+
+	var load = function() {
+		var items = localStorage.getItem('borrowed');
+
+		if (items) {
+			borrowed = JSON.parse(localStorage.getItem('borrowed'));
+		}
 	};
 
 	form.addEventListener('submit', function(e) {
@@ -56,5 +70,6 @@
 		return false;
 	});
 
+	load();
 	render();
 }());
