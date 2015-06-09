@@ -19,13 +19,23 @@
 	var render = function() {
 		var fragment = document.createDocumentFragment();
 
-		borrowed.forEach(function(item) {
+		borrowed.forEach(function(item, index) {
 			var when = new Date(item.when),
 				formatted = when.toLocaleString(),
 				listItem = document.createElement('li'),
-				text = document.createTextNode(item.who + ' has my ' + item.what + ' (' + formatted + ')');
+				text = document.createTextNode(item.who + ' has my ' + item.what + ' (' + formatted + ')'),
+				del = document.createElement('a');
+
+			del.appendChild(document.createTextNode('X'));
+			del.href = '#';
+
+			del.addEventListener('click', function() {
+				borrowed.splice(index, 1);
+				render();
+			});
 
 			listItem.appendChild(text);
+			listItem.appendChild(del);
 			fragment.appendChild(listItem);
 		});
 
@@ -44,13 +54,6 @@
 		e.preventDefault();
 		return false;
 	});
-
-	addItem('dan', 'the good parts', Date.now());
-	addItem('dan', 'the good parts', Date.now());
-	addItem('dan', 'the good parts', Date.now());
-	addItem('dan', 'the good parts', Date.now());
-
-	console.log(borrowed);
 
 	render();
 }());
